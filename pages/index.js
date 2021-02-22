@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useEffect, useState } from 'react';
+import React, { useRef, useCallback, useEffect, useState, forwardRef } from 'react';
 
 import {
   Box,
@@ -21,8 +21,10 @@ const useStyles = makeStyles(() => ({
   root: {
     overflow: "hidden"
   },
+  landingContainer: {
+    width: "100vw"
+  },
   introText: {
-    marginTop: "15vh",
     letterSpacing: 0.5,
     fontSize: ({ fontSize }) => fontSize || 70,
     fontWeight: "bolder"
@@ -34,7 +36,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const SlidePage = ({ index, activeStep, imageSrc, text, style, onPrevious, onNext }) => {
+const SlidePage = forwardRef(({ index, activeStep, text, style, ...props }, ref) => {
   const { color, background, fontSize } = style;
 
   const { setColor, setBackground } = useNavbar();
@@ -59,38 +61,42 @@ const SlidePage = ({ index, activeStep, imageSrc, text, style, onPrevious, onNex
 
   return (
     <LandingSlide
+      {...props}
       ref={rootRef}
       className={classes.slidePage}
       onMoreButtonClick={onMoreButton}
-      onPrevious={onPrevious}
-      imageSrc={imageSrc}
-      onNext={onNext}
     >
-      <Typography className={classes.introText}>{text}</Typography> 
+      <Box width="50vw">
+        <Typography className={classes.introText}>{text}</Typography> 
+      </Box>
     </LandingSlide>
   );
-};
+});
 
 const IntervalProgress = ({ activeStep }) => {
-  const [progress, setProgress] = useState(0);
   const slides = useSlides();
-
-  useEffect(() => setProgress(0), [activeStep]);
+  const ref = useRef();
 
   useEffect(() => {
+    if (!ref) return;
+    let progress = 0;
+
     const interval = setInterval(() => {
-      setProgress(progress => progress + 0.10);
-    }, 1);
+      progress += 0.1;
+
+      ref.current.style.width = `${progress}vw`;
+      // setProgress(progress => progress + 0.9);
+    }, 5);
 
     return () => {
       clearInterval(interval);
     }
-  }, []);
+  }, [activeStep]);
 
   return (
     <Box
+      ref={ref}
       height="3px"
-      width={`${progress}vw`}
       style={{
         background: slides[activeStep].style.color,
         position: 'absolute',
@@ -131,13 +137,9 @@ export default function Index() {
     }
   }, []);
 
-  const onPreviousSlide = index => () => {
-    
-  };
+  const onPreviousSlide = index => () => setActiveStep(--index)
 
-  const onNextSlide = index => () => {
-
-  };
+  const onNextSlide = index => () => setActiveStep(++index);
 
   return (
     <Box className={classes.root}>
@@ -152,6 +154,8 @@ export default function Index() {
                   activeStep={activeStep}
                   onPrevious={onPreviousSlide(index)}
                   onNext={onNextSlide(index)}
+                  disablePrev={index === 0}
+                  disableNext={activeStep === slides.length - 1}
                   {...props}
                 />
               ))}
@@ -159,8 +163,10 @@ export default function Index() {
             <IntervalProgress activeStep={activeStep} />
           </Grid>
           <Grid item>
-            <Box my={4} height="100vh">
-
+            <Box my={4} height="20vh">
+              <Box padding="60px">
+                <Typography variant="h2">Site is still under development, coming soon...</Typography>
+              </Box>
             </Box>
           </Grid>
         </Grid>

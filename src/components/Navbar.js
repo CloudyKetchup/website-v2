@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { useRouter } from "next/router";
 
-import { AppBar, Toolbar, Typography, Grid, Button, Slide, makeStyles, useScrollTrigger } from "@material-ui/core";
+import { AppBar, Toolbar, Typography, Grid, Button, Slide, makeStyles, useScrollTrigger, Collapse } from "@material-ui/core";
 import ChangeHistoryIcon from '@material-ui/icons/ChangeHistory';
+import Contact from "./Contact";
 
 import { useNavbar } from "../hooks/useNavbarTheme";
 
@@ -38,26 +40,46 @@ function HideOnScroll(props) {
 };
 
 const Navbar = () => {
+  const [expanded, setExpanded] = useState(false);
   const { color, background } = useNavbar();
   const classes = useStyles({ color, background })();
+  const router = useRouter();
+
+  const onHome = () => {
+    if (router.asPath === "/") {
+      window.scroll({
+        top: 0,
+        behavior: "smooth"
+      })
+    } else {
+      router.push("/");
+    }
+  };
+  
+  const onContact = () => setExpanded(!expanded);
 
   return (
-    <HideOnScroll>
-      <AppBar className={classes.appBar} position="static">
-        <Toolbar>
-          <ChangeHistoryIcon/>
-          <Typography className={classes.title}>Maxim Dodon</Typography>
-          <Grid className={classes.toolbarSections}>
-            <Grid item>
-              <Button><Typography style={{ color }}>Contact</Typography></Button>
+    <>
+      <HideOnScroll>
+        <AppBar className={classes.appBar} position="static">
+          <Toolbar>
+            <ChangeHistoryIcon />
+            <Typography className={classes.title} onClick={onHome}>Maxim Dodon</Typography>
+            <Grid className={classes.toolbarSections}>
+              <Grid item>
+                <Button onClick={onContact}><Typography style={{ color }}>Contact</Typography></Button>
+              </Grid>
+              <Grid item>
+                <Button><Typography style={{ color }} component="a" href="/documents/Maxim_Dodon.pdf" target="_blank">Resume</Typography></Button>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Button><Typography style={{ color }}>Resume</Typography></Button>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-    </HideOnScroll>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+      <Collapse in={expanded} unmountOnExit>
+        <Contact/>
+      </Collapse>
+    </>
   );
 };
 

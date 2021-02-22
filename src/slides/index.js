@@ -11,7 +11,7 @@ const slides = [
   },
   {
     text: `
-      Scalable and rich experience on the web, avoiding ...
+      Delivering scalable and rich experience on the web, avoiding ...
     `,
     imageSrc: "/slide-1.jpg",
     style: {
@@ -32,7 +32,7 @@ const slides = [
   },
   {
     text: `
-      Let's make the web a better places, together.
+      Let's build the web of the future, together.
     `,
     imageSrc: "/slide-3.jpg",
     style :{

@@ -1,15 +1,23 @@
 import React, { forwardRef } from "react";
 
-import { Box, Typography, Button, makeStyles } from "@material-ui/core";
+import { Box, Container, Typography, IconButton, Button, makeStyles } from "@material-ui/core";
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ImageContainer from './ImageContainer';
 
 const useStyles = makeStyles(({ palette }) => ({
+  landingContainer: {
+    display: "flex",
+    margin: "auto",
+    marginTop: "-50px"
+  },
   landingContent: {
+    display: "flex",
     margin: "auto",
     padding: 60,
     wordBreak: "break-word",
-    width: "60vw",
+    width: "100vw",
     height: "100%",
     top: 0,
     bottom: 0,
@@ -28,10 +36,17 @@ const useStyles = makeStyles(({ palette }) => ({
     bottom: 20,
     left: 40,
     color: palette.text.primary
+  },
+  button: {
+    fontSize: 40,
+    "& svg": {
+      height: "2em",
+      width: "2em"
+    }
   }
 }));
 
-const LandingSlide = forwardRef(({ children, imageSrc, onMoreButton, ...props }, ref) => {
+const LandingSlide = forwardRef(({ children, imageSrc, onMoreButtonClick, onPrevious, onNext, disablePrev, disableNext, ...props }, ref) => {
   const classes = useStyles();
 
   return (
@@ -45,8 +60,26 @@ const LandingSlide = forwardRef(({ children, imageSrc, onMoreButton, ...props },
         />
       </Box>
       <Box className={classes.landingContent}>
-        {children}
-        <Button className={classes.moreButton} onClick={onMoreButton} variant="text">
+        {/* <Container className={classes.landingContianer} maxWidth="lg">
+          <Box margin="auto" display="flex"> */}
+            {/* <Box margin="auto"> */}
+              {/* {!disablePrev && (
+                <IconButton className={classes.button} onClick={onPrevious}>
+                  <ArrowBackIosIcon />
+                </IconButton>
+              )} */}
+            {/* </Box> */}
+            {children}
+            {/* <Box margin="auto" marginLeft="auto"> */}
+              {/* {!disableNext && (
+                <IconButton className={classes.button} onClick={onNext}>
+                  <ArrowForwardIosIcon />
+                </IconButton>
+              )} */}
+            {/* </Box> */}
+          {/* </Box>
+        </Container> */}
+        <Button className={classes.moreButton} onClick={onMoreButtonClick} variant="text">
           <ArrowDownwardIcon />
           <Box marginLeft="10px">
             <Typography>More</Typography>
