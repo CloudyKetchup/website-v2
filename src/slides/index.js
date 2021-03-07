@@ -6,7 +6,8 @@ const slides = [
     imageSrc: "/slide-0.jpg",
     style: {
       color: "#fff",
-      background: "#000"
+      background: "#000",
+      fontSize: 60
     }
   },
   {
@@ -16,7 +17,8 @@ const slides = [
     imageSrc: "/slide-1.jpg",
     style: {
       color: "#181818",
-      background: "#fff"
+      background: "#fff",
+      fontSize: 60
     }
   },
   {

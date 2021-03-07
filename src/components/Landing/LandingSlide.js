@@ -4,7 +4,7 @@ import { Box, Container, Typography, IconButton, Button, makeStyles } from "@mat
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ImageContainer from './ImageContainer';
+import ImageContainer from '../ImageContainer';
 
 const useStyles = makeStyles(({ palette }) => ({
   landingContainer: {

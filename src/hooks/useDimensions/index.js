@@ -1,4 +1,4 @@
-import { useState, useCallback, useLayoutEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 function getDimensionObject(node) {
   const rect = node.getBoundingClientRect();
@@ -23,7 +23,7 @@ function useDimensions({ liveMeasure = true } = {}) {
     setNode(node);
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (node) {
       const measure = () => {
         window.requestAnimationFrame(() =>
