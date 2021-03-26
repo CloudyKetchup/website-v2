@@ -1,88 +1,37 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useEffect } from "react";
 
-import { Box } from "@material-ui/core";
-import SlidePage from "./SlidePage";
-import SwipeableViews from "react-swipeable-views";
-import { autoPlay } from "react-swipeable-views-utils";
+import { RiArrowDownSLine } from "react-icons/ri";
 
-import { useSlides } from "../../slides";
+export default function Landing() {
+	const onScroll = () => {
+		window.scroll({
+			top: window.innerHeight,
+			behavior: "smooth"
+		});
+	};
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-
-const IntervalProgress = ({ activeStep }) => {
-  const slides = useSlides();
-  const ref = useRef();
-
-  useEffect(() => {
-    if (!ref) return;
-    let progress = 0;
-
-    const interval = setInterval(() => {
-      progress += 0.1;
-
-      ref.current.style.width = `${progress}vw`;
-      // setProgress(progress => progress + 0.9);
-    }, 5);
-
-    return () => {
-      clearInterval(interval);
-    }
-  }, [activeStep]);
-
-  return (
-    <Box
-      ref={ref}
-      height="3px"
-      style={{
-        background: slides[activeStep].style.color,
-        position: 'absolute',
-        borderRadius: 5,
-        zIndex: 100,
-        bottom: 0
-      }}
-    />
-  );
+	return (
+		<section className="h-screen w-screen relative">
+			<video
+				id="landing-video"
+				className="filter-brightness object-cover h-full w-full bg-cover bg-no-repeat absolute z-0"
+				muted
+				loop
+				autoPlay
+				controls={false}
+				src="/videos/tokyo.mp4"
+				type="video/mp4"
+				disablePictureInPicture
+				disableRemotePlayback
+			/>
+			<div className="flex content-middle h-full w-full absolute z-10 p-16 pt-28">
+				<h2 className="m-auto text-white text-4xl font-bold text-wrap">
+					Building the web of the future
+				</h2>
+			</div>
+			<button className="outline-none border-none absolute bottom-10 z-30 inset-x-0 m-auto" onClick={onScroll}>
+				<RiArrowDownSLine size="3em" color="white" />
+			</button>
+		</section>
+	);
 };
-
-const Landing = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const slides = useSlides();
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveStep(currentStep => {
-        return currentStep === slides.length -1 ? 0 : currentStep + 1;
-      });
-    }, 5000);
-
-    return () => {
-      clearInterval(interval);
-    }
-  }, []);
-
-  const onPreviousSlide = index => () => setActiveStep(--index)
-
-  const onNextSlide = index => () => setActiveStep(++index);
-
-  return (
-    <>
-      <AutoPlaySwipeableViews index={activeStep}>
-        {slides.map((props, index) => (
-          <SlidePage
-            key={index}
-            index={index}
-            activeStep={activeStep}
-            onPrevious={onPreviousSlide(index)}
-            onNext={onNextSlide(index)}
-            disablePrev={index === 0}
-            disableNext={activeStep === slides.length - 1}
-            {...props}
-          />
-        ))}
-      </AutoPlaySwipeableViews>
-      {/* <IntervalProgress activeStep={activeStep} /> */}
-    </>
-  );
-};
-
-export default Landing;

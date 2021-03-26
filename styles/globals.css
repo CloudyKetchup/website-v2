@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+	background: black;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+* {
+	transition: 0.4s;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.hidden-navbar {
+	margin-top: -100px;
+	transition: 1s;
+}
+
+.navbar {
+	margin-top: 0;
+	transition: 0.5s;
+}
