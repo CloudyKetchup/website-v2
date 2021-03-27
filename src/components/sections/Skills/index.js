@@ -87,7 +87,7 @@ export default function Skills() {
 	const chunks = chunkArray(skills, 2);
 
 	return (
-	  <section className="bg-white text-center w-screen p-5 md:p-10 md:p-20 space-y-20 shadow-inner" style={{ minHeight: "100vh" }}>
+	  <section className="bg-white text-center w-screen p-5 md:p-20 space-y-20 shadow-inner" style={{ minHeight: "100vh" }}>
 	  	<div className="mt-10 m-auto">
 	  		<h1 className="text-2xl font-bold">Technology Stack</h1>
 	  	</div>
@@ -99,9 +99,6 @@ export default function Skills() {
 	    			))}
 	    		</div>
 	    	))}
-	    </div>
-	    <div>
-	    	
 	    </div>
 	  </section>
 	);
