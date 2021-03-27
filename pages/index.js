@@ -6,7 +6,6 @@ import Experience from "../src/components/sections/Experience";
 import Skills from "../src/components/sections/Skills";
 import Footer from "../src/components/Footer";
 import Separator from "../src/components/Separator";
-import Projects from "../src/components/Projects";
 
 export default function Home() {
   return (
