@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import { RiArrowDownSLine } from "react-icons/ri";
 
 export default function Landing() {
@@ -9,7 +7,7 @@ export default function Landing() {
 			behavior: "smooth"
 		});
 	};
-
+	
 	return (
 		<section className="h-screen w-screen relative">
 			<video
@@ -29,8 +27,8 @@ export default function Landing() {
 					Building the web of the future
 				</h2>
 			</div>
-			<button className="outline-none border-none absolute bottom-10 z-30 inset-x-0 m-auto" onClick={onScroll}>
-				<RiArrowDownSLine size="3em" color="white" />
+			<button className="w-12 h-12 outline-none border-none absolute bottom-10 z-30 inset-x-0 m-auto" onClick={onScroll}>
+				<RiArrowDownSLine className="m-auto" size="3em" color="white" />
 			</button>
 		</section>
 	);
