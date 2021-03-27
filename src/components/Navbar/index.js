@@ -1,23 +1,24 @@
-import { useEffect, useRef, useState } from "react";
-
-import Image from "next/image";
+import { useEffect, useState } from "react";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdChangeHistory } from "react-icons/md";
+import { IoMdClose } from "react-icons/io";
 
 import credentials from "../../../credentials.json";
 
 export default function Navbar({ title }) {
 	const [menu, setMenu] 			= useState(false);
 	const [visible, setVisible] = useState(true);
-	const ref = useRef();
+
+	const onContact = () => {
+		window.scroll({
+			top: document.body.scrollHeight + 350,
+			behavior: "smooth"
+		});
+	};
 
 	useEffect(() => {
-		if (!ref.current) return;
-
 		const onScroll = () => {
-			const { current } = ref;
-
 			const currentScrollPos = window.pageYOffset + 300;
 
 			setVisible(currentScrollPos < window.innerHeight);
@@ -28,28 +29,10 @@ export default function Navbar({ title }) {
 		return () => {
 			window.removeEventListener("scroll", onScroll);
 		}
-	}, [ref.current]);
-
-	const onContact = () => {
-		window.scroll({
-			top: document.body.scrollHeight + 350,
-			behavior: "smooth"
-		});
-	};
-
-	useEffect(() => {
-		if (menu) {
-			document.body.classList.add("overflow-hidden");
-		} else {
-			document.body.classList.remove("overflow-hidden");
-		}
-	}, [menu]);
+	}, []);	
 
 	return (
-		<nav
-			className={`${visible ? "navbar" : "hidden-navbar"} bg-white h-24 w-screen flex fixed justify-center fixed z-20 shadow-2xl`}
-			ref={ref}
-		>
+		<nav className={`${visible ? "navbar" : "hidden-navbar"} bg-white h-24 w-screen flex justify-center fixed z-20 shadow-2xl`}>
 			<div className="flex flex-row-reverse md:flex-row m-auto ml-10 space-x-2">
 				<div className="hidden md:block">
 					<MdChangeHistory size="1.55em" />
@@ -71,7 +54,7 @@ export default function Navbar({ title }) {
 			</div>
 			<div className="block md:hidden">
 				<div className="p-8 cursor-pointer" onClick={() => setMenu(!menu)}>
-					<GiHamburgerMenu size="2em" />
+					{menu ? <IoMdClose size="2.1em" /> : <GiHamburgerMenu size="2em" />}
 				</div>
 			</div>
 			{menu && (
