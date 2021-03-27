@@ -1,8 +1,14 @@
-import '../styles/globals.css'
+import Navbar from "../src/components/Navbar";
 
+import '../styles/globals.css';
+import 'tailwindcss/tailwind.css';
+ 
 function MyApp({ Component, pageProps }) {
   return (
-  	<Component {...pageProps} />
+    <>
+      <Navbar title="Maxim Dodon" />
+      <Component {...pageProps} />
+    </>
   );
 }
 
