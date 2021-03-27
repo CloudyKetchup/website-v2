@@ -14,11 +14,11 @@ export default function Experience() {
         <div>
           <p className="text-2xl font-md">
             <span className="pl-10" />Working in a cyber security startup, I was responsible for the development from scratch of a big data platform and the final deployment
-          to the cloud.
-          <br /><span className="pl-10" />My responsibilities included development, planning and maintenance of complex UI components, such as graphs, rich tables and charts.
-          Closely worked with the backend engrinners to ensure the consistency and the best possible model for the data handled by the frontend.
-          And some devops stuff, such as creation and configuration of the VPS.
-        </p>
+            to the cloud.
+            <br /><span className="pl-10" />My responsibilities included development, planning and maintenance of a complex Frontend solution.
+            Worked closely with the backend engineers to ensure the compatibility of the server side and the client side.
+            And DevOps tasks such as VPS configuration and deployment of the services to the cloud environment.
+          </p>
         </div>
       </div>
     </section>
