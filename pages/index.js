@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import Navbar from "../src/components/Navbar";
 import Landing from "../src/components/Landing";
 import Intro from "../src/components/sections/Intro";
 import Experience from "../src/components/sections/Experience";
@@ -16,6 +17,7 @@ export default function Home({ skills, credentials, roadmap }) {
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"/>
       </Head>
+      <Navbar title="Maxim Dodon" credentials={credentials} />
       <div className="h-full">
         <Landing />
         <Intro />
