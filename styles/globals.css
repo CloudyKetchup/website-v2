@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind tailwindcss-filters
+@tailwind tailwindcss-filters;
 
 html,
 body {
