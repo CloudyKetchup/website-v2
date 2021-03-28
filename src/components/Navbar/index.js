@@ -30,7 +30,12 @@ export default function Navbar({ title, credentials }) {
 	}, []);	
 
 	return (
-		<nav className={`${visible ? "navbar" : "hidden-navbar"} bg-white h-24 w-screen flex justify-center fixed z-20 shadow-2xl`}>
+		<nav
+			className={`${visible ? "navbar" : "hidden-navbar"} backdrop-blur h-24 w-screen flex justify-center fixed z-20 shadow-2xl`}
+			style={{
+				backgroundColor: "rgba(255, 255, 255, 0.8)"
+			}}
+		>
 			<div className="flex flex-row-reverse md:flex-row m-auto ml-10 space-x-2">
 				<div className="hidden md:block">
 					<MdChangeHistory size="1.55em" />
@@ -56,7 +61,10 @@ export default function Navbar({ title, credentials }) {
 				</div>
 			</div>
 			{menu && (
-				<div className="block md:hidden shadow-inner overflow-hidden fixed bg-white w-screen top-24 z-40" style={{ height: "calc(100vh - 92px)" }}>
+				<div
+					className="block md:hidden shadow-inner bg-white overflow-hidden h-screen fixed backdrop-blur w-screen top-24 z-40"
+					style={{ height: "calc(100vh - 92px)", }}
+				>
 					<div className="h-full flex text-center justify-center content-middle">
 						<ul className="m-auto text-2xl font-bold space-y-20 inline-block align-middle">
 							<li
