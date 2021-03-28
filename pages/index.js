@@ -1,13 +1,13 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
 import Landing from "../src/components/Landing";
 import Intro from "../src/components/sections/Intro";
 import Experience from "../src/components/sections/Experience";
 import Skills from "../src/components/sections/Skills";
 import Footer from "../src/components/Footer";
-import Separator from "../src/components/Separator";
+import FutureRoadmap from '../src/components/sections/FutureRoadmap';
 
-export default function Home() {
+export default function Home({ skills, credentials, roadmap }) {
   return (
     <div className="h-full w-full overflow-x-hidden">
       <Head>
@@ -19,12 +19,25 @@ export default function Home() {
       <div className="h-full">
         <Landing />
         <Intro />
-        <Separator />
         <Experience />
-        <Separator />
-        <Skills />
-        <Footer/>
+        <Skills skills={skills} />
+        <FutureRoadmap year={roadmap.year} technologies={roadmap.technologies} />
+        <Footer credentials={credentials} />
       </div>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const skills      = require("../assets/skills.json");
+  const credentials = require("../assets/credentials.json");
+  const roadmap     = require("../assets/roadmap.json");
+
+  return {
+    props: {
+      skills,
+      credentials,
+      roadmap
+    }
+  };
 }
