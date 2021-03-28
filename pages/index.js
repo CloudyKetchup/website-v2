@@ -13,6 +13,7 @@ export default function Home({ skills, credentials, roadmap }) {
     <div className="h-full w-full overflow-x-hidden">
       <Head>
         <title>Maxim Dodon</title>
+        <meta name="description" content="Create the web which we all deserve"/>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"/>
