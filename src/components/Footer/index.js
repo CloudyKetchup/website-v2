@@ -22,12 +22,6 @@ export default function Footer({ credentials }) {
 							</div>
 							<span>{credentials.email}</span>
 						</li>
-						<li className="flex space-x-6">
-							<div className="flex content-middle">
-								<AiTwotonePhone className="m-auto"/>
-							</div>
-							<span>{credentials.mobileNumber}</span>
-						</li>
 						<li className="flex space-x-6 hover:text-gray-400">
 							<div className="flex content-middle">
 								<FaLinkedinIn className="m-auto"/>
