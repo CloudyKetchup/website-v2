@@ -6,7 +6,7 @@ export default function Experience() {
           <div className="flex">
             <h1 className="text-2xl font-bold m-auto md:m-unset">Commercial Experience</h1>
           </div>
-          <div className="flex-1 md:flex space-x-0 md:space-x-2 pl-10">
+          <div className="flex-1 md:flex justify-center content-center space-x-0 md:space-x-2 pl-10">
             <h2 className="text-xl font-bold">Frontend Developer, Relate Data:</h2>
             <h2 className="text-xl text-gray-400 font-bold">Sep 2020 - Feb 2021</h2>
           </div>
