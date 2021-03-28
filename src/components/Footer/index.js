@@ -1,10 +1,8 @@
-import credentials from "../../../credentials.json";
-
 import { AiTwotoneMail, AiOutlineGithub, AiTwotonePhone } from "react-icons/ai";
 import { MdChangeHistory } from "react-icons/md";
 import { FaLinkedinIn } from "react-icons/fa";
 
-export default function Footer() {
+export default function Footer({ credentials }) {
 	return (
 		<footer className="bg-gray-100 shadow-inner">
 			<div className="h-full flex-1 md:flex justify-center content-middle p-5 pt-20 pb-20 md:p-20 max-w-4xl m-auto space-y-8 md:space-y-0">

@@ -4,9 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { MdChangeHistory } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 
-import credentials from "../../../credentials.json";
-
-export default function Navbar({ title }) {
+export default function Navbar({ title, credentials }) {
 	const [menu, setMenu] 			= useState(false);
 	const [visible, setVisible] = useState(true);
 

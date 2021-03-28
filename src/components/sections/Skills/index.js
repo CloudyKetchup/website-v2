@@ -1,56 +1,3 @@
-const skills = [
-	{
-		name: "Javacript",
-		level: 100,
-		img: "/icons/javascript.svg"
-	},
-	{
-		name: "Typecript",
-		level: 100,
-		img: "/icons/typescript.svg"
-	},
-	{
-		name: "Redux",
-		level: 80,
-		img: "/icons/redux.svg"
-	},
-	{
-		name: "React",
-		level: 100,
-		img: "/icons/react.svg"
-	},
-	{
-		name: "NodeJS",
-		level: 90,
-		img: "/icons/nodejs.svg"
-	},
-	{
-		name: "Jest",
-		level: 40,
-		img: "/icons/jest.svg"
-	},
-	{
-		name: "ExpressJS",
-		level: 60,
-		img: "/icons/express.svg"
-	},
-	{
-		name: "Docker",
-		level: 70,
-		img: "/icons/docker.svg"
-	},
-	{
-		name: "Material-UI",
-		level: 95,
-		img: "/icons/material-ui.svg"
-	},
-	{
-		name: "Tailwind CSS",
-		level: 80,
-		img: "/icons/tailwindcss.svg"
-	},	
-];
-
 function chunkArray(arr, n) {
   const chunkLength = Math.max(arr.length / n ,1);
   const chunks = [];
@@ -83,22 +30,32 @@ function Skill({ name, level, img }) {
 	);
 };
 
-export default function Skills() {
+export default function Skills({ skills = [] }) {
 	const chunks = chunkArray(skills, 2);
 
+	const renderSkills = () => (
+		chunks.map((skills, index) => (
+			<div key={index} className="ml-auto mr-auto grid gap-4 p-10">
+				{skills.map((skill, index) => (
+					<Skill key={index} {...skill} />
+				))}
+			</div>
+		))
+	);
+
+	const renderEmptySkills = () => (
+		<div className="text-center text-gray-400 text-xl font-bold">
+			<h1>Some error happened, sorry.</h1>
+		</div>
+	);
+
 	return (
-	  <section className="bg-white text-center w-screen p-5 md:p-20 space-y-20 shadow-inner" style={{ minHeight: "100vh" }}>
-	  	<div className="mt-10 m-auto">
+	  <section className="bg-white text-center w-screen p-5 md:p-20 space-y-10 shadow-inner">
+	  	<div className="m-auto">
 	  		<h1 className="text-2xl font-bold">Technology Stack</h1>
 	  	</div>
 	    <div className="m-auto flex-1 md:flex justify-center rounded-md p-15 max-w-4xl">
-	    	{chunks.map((skills, index) => (
-	    		<div key={index} className="ml-auto mr-auto grid gap-4 p-5 md:p-10">
-	    			{skills.map((skill, index) => (
-	    				<Skill key={index} {...skill}/>
-	    			))}
-	    		</div>
-	    	))}
+	    	{chunks.length === 0 ? renderEmptySkills() : renderSkills()}
 	    </div>
 	  </section>
 	);
