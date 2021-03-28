@@ -19,7 +19,7 @@ export default function Landing() {
 					Building the web of the future
 				</h2>
 			</div>
-			<button className="w-12 h-12 outline-none border-none absolute bottom-10 z-30 inset-x-0 m-auto" onClick={onScroll}>
+			<button className="w-12 h-12 outline-none border-none absolute bottom-10 z-30 inset-x-0 m-auto animate-bounce" onClick={onScroll}>
 				<RiArrowDownSLine className="m-auto" size="3em" color="white" />
 			</button>
 		</section>
