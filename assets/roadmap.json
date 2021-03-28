@@ -1,0 +1,20 @@
+{
+  "year": 2021,
+  "technologies": [
+    {
+      "name": "Ethereum",
+      "img": "/icons/ethereum.svg",
+      "description": "Learn to build distributed blockchain applications based on the Ethereum platform"
+    },
+    {
+      "name": "Prisma",
+      "img": "/icons/prisma.svg",
+      "description": "Create robust and scalable NodeJS applications with the Prisma database"
+    },
+    {
+      "name": "GraphQL",
+      "img": "/icons/graphql.svg",
+      "description": "Not limit myself to REST and build modern web applications powered by GraphQL and Apollo"
+    }
+  ]
+}

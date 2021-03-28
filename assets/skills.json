@@ -1,0 +1,62 @@
+[
+	{
+		"name": "Javacript",
+		"level": 100,
+		"img": "/icons/javascript.svg"
+	},
+	{
+		"name": "Typecript",
+		"level": 100,
+		"img": "/icons/typescript.svg"
+	},
+	{
+		"name": "Redux",
+		"level": 80,
+		"img": "/icons/redux.svg"
+	},
+	{
+		"name": "NextJS",
+		"level": 80,
+		"img": "/icons/nextjs.svg"
+	},
+	{
+		"name": "React",
+		"level": 100,
+		"img": "/icons/react.svg"
+	},
+	{
+		"name": "NodeJS",
+		"level": 90,
+		"img": "/icons/nodejs.svg"
+	},
+	{
+		"name": "Jest",
+		"level": 40,
+		"img": "/icons/jest.svg"
+	},
+	{
+		"name": "ExpressJS",
+		"level": 60,
+		"img": "/icons/express.svg"
+	},
+	{
+		"name": "Docker",
+		"level": 70,
+		"img": "/icons/docker.svg"
+	},
+	{
+		"name": "MongoDB",
+		"level": 80,
+		"img": "/icons/mongodb.svg"
+	},
+	{
+		"name": "Tailwind CSS",
+		"level": 80,
+		"img": "/icons/tailwindcss.svg"
+	},
+	{
+		"name": "Sass",
+		"level": 80,
+		"img": "/icons/sass.svg"
+	}
+]
