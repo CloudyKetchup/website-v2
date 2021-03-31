@@ -1,11 +1,11 @@
 [
 	{
-		"name": "Javacript",
+		"name": "Javascript",
 		"level": 100,
 		"img": "/icons/javascript.svg"
 	},
 	{
-		"name": "Typecript",
+		"name": "Typescript",
 		"level": 100,
 		"img": "/icons/typescript.svg"
 	},
@@ -35,7 +35,7 @@
 		"img": "/icons/jest.svg"
 	},
 	{
-		"name": "ExpressJS",
+		"name": "Express",
 		"level": 60,
 		"img": "/icons/express.svg"
 	},
